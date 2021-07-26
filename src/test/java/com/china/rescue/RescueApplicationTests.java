@@ -1,4 +1,4 @@
-package com.china.demo;
+package com.china.rescue;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

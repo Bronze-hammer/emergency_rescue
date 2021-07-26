@@ -1,4 +1,4 @@
-package com.china.demo;
+package com.china.rescue;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
