@@ -2,6 +2,7 @@ package com.china.rescue.common;
 
 
 
+import com.china.rescue.component.CustException;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
@@ -78,6 +79,26 @@ public class ServerResponse<T> implements Serializable {
 
     public static <T> ServerResponse<T> createByErrorCodeMessage(int status, String msg){
         return new ServerResponse<T>(status, msg);
+    }
+
+    /**
+     * 自定义异常返回结果
+     * @param e
+     * @param <T>
+     * @return
+     */
+    public static <T> ServerResponse<T> createByCustExceptionCodeMessage(CustException e){
+        return new ServerResponse<T>(e.getCode(), e.getMsg());
+    }
+
+    /**
+     * 其他异常返回结果
+     * @param responseCode
+     * @param <T>
+     * @return
+     */
+    public static <T> ServerResponse<T> createByOtherExceptionCodeMessage(ResponseCode responseCode){
+        return new ServerResponse<T>(responseCode.getCode(), responseCode.getDesc());
     }
 
 }
