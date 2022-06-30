@@ -9,10 +9,16 @@ spring:
     username: root
     password: xu123456
     driver-class-name: com.mysql.cj.jdbc.Driver
-#  security:
-#    user:
-#      name: root
-#      password: root
+
+  redis:
+    host: localhost
+    port: 6379
+    jedis:
+      pool:
+        max-active: 20
+        max-idle: 8
+        min-idle: 0
+        max-wait: 20000
 
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
