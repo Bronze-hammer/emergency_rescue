@@ -1,0 +1,37 @@
+##ignore this file##
+/target/
+
+.classpath
+.project
+.settings
+
+/log
+.idea
+out/
+*.iml
+
+##filter databfile、sln file##
+*.mdb
+*.ldb
+*.sln
+
+##class file##
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+*.via
+*.tmp
+*.err
