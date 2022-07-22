@@ -32,7 +32,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = AccessDeniedException.class)
     public ServerResponse CustAccessDeniedException(AccessDeniedException e){
         logger.error(exceptionMsgHandler(e), e);
-        return ServerResponse.createByOtherExceptionCodeMessage(ResponseCode.AUTHONTICATION_FAILED);
+        return ServerResponse.createByOtherExceptionCodeMessage(ResponseCode.UNAUTHORIZED);
     }
 
     /**
