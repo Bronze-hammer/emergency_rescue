@@ -2,9 +2,10 @@ package com.china.rescue.handler;
 
 import com.china.rescue.common.ResponseCode;
 import com.china.rescue.common.ServerResponse;
-import com.china.rescue.component.CustException;
+import com.china.rescue.common.CustException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -26,6 +27,12 @@ public class GlobalExceptionHandler {
     public ServerResponse ExceptionHandler(Exception e){
         logger.error(exceptionMsgHandler(e), e);
         return ServerResponse.createByOtherExceptionCodeMessage(ResponseCode.INTERNAL_SERVER_ERROR);
+    }
+
+    @ExceptionHandler(value = AccessDeniedException.class)
+    public ServerResponse CustAccessDeniedException(AccessDeniedException e){
+        logger.error(exceptionMsgHandler(e), e);
+        return ServerResponse.createByOtherExceptionCodeMessage(ResponseCode.AUTHONTICATION_FAILED);
     }
 
     /**

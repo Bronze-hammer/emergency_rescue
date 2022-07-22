@@ -2,7 +2,6 @@ package com.china.rescue.common;
 
 
 
-import com.china.rescue.component.CustException;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 

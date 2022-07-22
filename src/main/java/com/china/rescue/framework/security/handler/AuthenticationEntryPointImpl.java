@@ -1,4 +1,4 @@
-package com.china.rescue.security.handler;
+package com.china.rescue.framework.security.handler;
 
 import com.alibaba.fastjson.JSON;
 import com.china.rescue.common.ResponseCode;

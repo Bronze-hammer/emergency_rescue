@@ -1,4 +1,4 @@
-package com.china.rescue.component;
+package com.china.rescue.common;
 
 /**
  * 自定义异常

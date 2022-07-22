@@ -1,4 +1,4 @@
-package com.china.rescue.security.jwt;
+package com.china.rescue.framework.security.jwt;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;

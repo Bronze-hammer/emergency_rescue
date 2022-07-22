@@ -1,8 +1,7 @@
-package com.china.rescue.security.jwt;
+package com.china.rescue.framework.security.jwt;
 
 import com.china.rescue.mapper.UserMapper;
 import com.china.rescue.po.User;
-import com.china.rescue.security.jwt.JWTProperties;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

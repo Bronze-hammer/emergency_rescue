@@ -1,4 +1,4 @@
-package com.china.rescue.config;
+package com.china.rescue.framework.redis.config;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
@@ -31,15 +31,22 @@ public class RedisConfig extends CachingConfigurerSupport {
         RedisTemplate<Object, Object> template = new RedisTemplate<>();
         template.setConnectionFactory(connectionFactory);
 
-        Jackson2JsonRedisSerializer serizlizer = new Jackson2JsonRedisSerializer(Object.class);
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
-        mapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
-        serizlizer.setObjectMapper(mapper);
+//        Jackson2JsonRedisSerializer serizlizer = new Jackson2JsonRedisSerializer(Object.class);
+//        ObjectMapper mapper = new ObjectMapper();
+//        mapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
+//        mapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
+//        serizlizer.setObjectMapper(mapper);
+//
+//        template.setValueSerializer(serizlizer);
+//        // 使用 StringRedisSerializer 来序列化redis的key值
+//        template.setKeySerializer(new StringRedisSerializer());
 
-        template.setValueSerializer(serizlizer);
-        // 使用 StringRedisSerializer 来序列化redis的key值
-        template.setKeySerializer(new StringRedisSerializer());
+        StringRedisSerializer stringRedisSerializer =new StringRedisSerializer();
+        template.setValueSerializer(stringRedisSerializer);
+        template.setKeySerializer(stringRedisSerializer);
+        template.setHashKeySerializer(stringRedisSerializer);
+        template.setHashValueSerializer(stringRedisSerializer);
+
         template.afterPropertiesSet();
         return template;
     }

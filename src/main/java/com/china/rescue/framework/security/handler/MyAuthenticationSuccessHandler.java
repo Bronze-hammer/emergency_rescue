@@ -1,6 +1,6 @@
-package com.china.rescue.security.handler;
+package com.china.rescue.framework.security.handler;
 
-import com.china.rescue.security.jwt.JWTProvider;
+import com.china.rescue.framework.security.jwt.JWTProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.Authentication;

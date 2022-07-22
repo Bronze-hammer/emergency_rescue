@@ -1,6 +1,7 @@
-package com.china.rescue.security.service;
+package com.china.rescue.framework.security.service;
 
 import com.china.rescue.mapper.UserMapper;
+import com.china.rescue.po.LoginUser;
 import com.china.rescue.po.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -12,8 +13,10 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
-@Component("custUserDetailsService")
+@Component
 public class CustUserDetailsService implements UserDetailsService {
 
     @Autowired
@@ -27,10 +30,15 @@ public class CustUserDetailsService implements UserDetailsService {
             throw new UsernameNotFoundException("User " + login + " was not found in db");
 
         // 2. 设置角色
-        Collection<GrantedAuthority> grantedAuthorities = new ArrayList<>();
-        GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(user.getRole());
-        grantedAuthorities.add(grantedAuthority);
+//        Collection<GrantedAuthority> grantedAuthorities = new ArrayList<>();
+//        GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(user.getRole());
+//        grantedAuthorities.add(grantedAuthority);
+//
+//        return new org.springframework.security.core.userdetails.User(login, user.getPassword(), grantedAuthorities);
 
-        return new org.springframework.security.core.userdetails.User(login, user.getPassword(), grantedAuthorities);
+        Set<String> perms = new HashSet<>();
+        perms.add(user.getRole());
+
+        return new LoginUser(user, perms);
     }
 }

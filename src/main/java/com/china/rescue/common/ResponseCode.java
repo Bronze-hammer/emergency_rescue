@@ -11,7 +11,8 @@ public enum ResponseCode {
     NEED_LOGIN(10, "NEED_LOGIN"),
     ILLEGAL_ARGUMENT(2, "ILLEGAL_ARGUMENT"),
     UNAUTHORIZED(401, "未授权"),
-    INTERNAL_SERVER_ERROR(500, "服务器异常，请联系管理员！");
+    INTERNAL_SERVER_ERROR(500, "服务器异常，请联系管理员！"),
+    AUTHONTICATION_FAILED(501, "认证失败，拒绝访问！");
 
     private final int code;
     private final String desc;

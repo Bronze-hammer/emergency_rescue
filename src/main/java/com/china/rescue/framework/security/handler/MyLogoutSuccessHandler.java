@@ -1,4 +1,4 @@
-package com.china.rescue.security.handler;
+package com.china.rescue.framework.security.handler;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.Authentication;
