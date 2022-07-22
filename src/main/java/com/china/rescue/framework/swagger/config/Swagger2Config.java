@@ -1,4 +1,4 @@
-package com.china.rescue.config;
+package com.china.rescue.framework.swagger.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
