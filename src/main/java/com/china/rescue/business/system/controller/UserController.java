@@ -1,5 +1,6 @@
 package com.china.rescue.business.system.controller;
 
+import com.china.rescue.annotations.OperatorLog;
 import com.china.rescue.business.system.po.User;
 import com.china.rescue.common.ServerResponse;
 import com.china.rescue.business.system.service.IUserService;
@@ -19,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
  * @author xbronze
  * @date 2023-7-27 14:52:28
  */
-@RequestMapping("/system")
+@RequestMapping("/system/user")
 @RestController
 @Api(value = "用户管理 controller" ,tags = {"用户管理接口统计"})
 public class UserController {
@@ -34,6 +35,7 @@ public class UserController {
         return ServerResponse.createBySuccessByData(userService.findUserById(id));
     }
 
+    @OperatorLog(operate = "获取用户信息", module = "用户管理")
     @ApiOperation(value = "获取用户信息接口")
     @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
     @GetMapping("/info")

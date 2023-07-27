@@ -21,7 +21,7 @@ spring:
         max-wait: 20000
 
 mybatis:
-  mapper-locations: classpath:mapper/*Mapper.xml
+  mapper-locations: classpath:mapper/*/*Mapper.xml
 
 jwtproperties:
   secret: "fasdgRbsdTjkhDfqskdfngkjdfnskghkerh4532tk34k65b43hj56b34wuikeh123"
