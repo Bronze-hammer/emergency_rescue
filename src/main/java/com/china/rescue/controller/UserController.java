@@ -13,12 +13,18 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * 用户接口
+ *
+ * @author xbronze
+ * @date 2023-7-27 14:52:28
+ */
 @RequestMapping("/user")
 @RestController
 @Api(value = "用户管理 controller" ,tags = {"用户管理接口统计"})
 public class UserController {
 
-    private static Logger logger = LoggerFactory.getLogger(UserController.class);
+    private final static Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
     private IUserService userService;
@@ -32,7 +38,7 @@ public class UserController {
     @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
     @GetMapping("/info")
     public String info(){
-        String userDetails = null;
+        String userDetails;
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (principal instanceof UserDetails){
             userDetails = ((UserDetails) principal).getUsername();

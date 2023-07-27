@@ -7,9 +7,8 @@ import java.util.Collection;
 import java.util.Set;
 
 /**
- * @Author: xbronze
- * @CreateTime: 2022-07-21  10:49
- * @Description: TODO
+ * @author : xbronze
+ * @date : 2022-07-21  10:49
  */
 public class LoginUser implements UserDetails, Principal {
 

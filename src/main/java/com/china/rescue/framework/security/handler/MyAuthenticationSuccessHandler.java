@@ -23,7 +23,7 @@ public class MyAuthenticationSuccessHandler implements AuthenticationSuccessHand
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
-                                        Authentication authentication) throws IOException, ServletException {
+                                        Authentication authentication) throws IOException {
         PrintWriter writer = response.getWriter();
         writer.println(jwtProvider.createToken(authentication, true));
     }

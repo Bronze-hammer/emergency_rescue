@@ -2,7 +2,6 @@ package com.china.rescue.framework.security.config;
 
 import com.china.rescue.framework.security.filter.JwtAuthenticationTokenFilter;
 import com.china.rescue.framework.security.handler.AuthenticationEntryPointImpl;
-import com.china.rescue.framework.security.jwt.JWTFilter;
 import com.china.rescue.framework.security.handler.MyAuthenticationSuccessHandler;
 import com.china.rescue.framework.security.handler.MyLogoutSuccessHandler;
 import com.china.rescue.framework.security.jwt.JWTProvider;
@@ -65,24 +64,28 @@ public class MySecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .logout().logoutUrl("/logout").logoutSuccessHandler(logoutSuccessHandler).and()
 //                .addFilterBefore(new JWTFilter(jwtProvider), UsernamePasswordAuthenticationFilter.class)
                 .addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class)
-                .exceptionHandling().authenticationEntryPoint(authenticationEntryPoint).and() // 地址访问验证失败不跳转登录页面，直接提示异常
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()  // 设置不使用httpSession存放认证信息
+                // 地址访问验证失败不跳转登录页面，直接提示异常
+                .exceptionHandling().authenticationEntryPoint(authenticationEntryPoint).and()
+                // 设置不使用httpSession存放认证信息
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeRequests()  // 过滤请求
                 .antMatchers("/getToken/**").anonymous()
                 .anyRequest().authenticated().and()
-                .headers().frameOptions().disable() // 除上面外的所有请求全部需要认证
+                // 除上面外的所有请求全部需要认证
+                .headers().frameOptions().disable()
                 .and()
                 .httpBasic();
     }
 
     @Bean
     public static NoOpPasswordEncoder passwordEncoder() {
-        return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance(); // 不使用加密算法加密密码
+        // 不使用加密算法加密密码
+        return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
         // return new BCryptPasswordEncoder();
     }
 
     @Override
-    public void configure(WebSecurity web) throws Exception {
+    public void configure(WebSecurity web) {
         // 添加不做权限的URL
         web.ignoring()
                 .antMatchers("/swagger-resources/**")

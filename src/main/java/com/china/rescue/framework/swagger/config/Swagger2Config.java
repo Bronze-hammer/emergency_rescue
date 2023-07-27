@@ -20,8 +20,8 @@ import java.util.List;
 /**
  * Swagger2配置类
  *
- * @Author: xbronze
- * @CreateTime: 2022-06-30  14:54
+ * @author : xbronze
+ * @date : 2022-06-30  14:54
  */
 
 @Configuration
@@ -31,11 +31,13 @@ public class Swagger2Config {
     @Bean
     public Docket createRestApi() {
         ParameterBuilder ticketPar = new ParameterBuilder();
-        List<Parameter> pars = new ArrayList<Parameter>();
+        List<Parameter> pars = new ArrayList<>();
 
-        ticketPar.name("Authorization").description("user ticket")//Token 以及Authorization 为自定义的参数，session保存的名字是哪个就可以写成那个
+        //Token 以及Authorization 为自定义的参数，session保存的名字是哪个就可以写成那个
+        ticketPar.name("Authorization").description("user ticket")
                 .modelRef(new ModelRef("string")).parameterType("header")
-                .required(false).build(); //header中的ticket参数非必填，传空也可以
+                //header中的ticket参数非必填，传空也可以
+                .required(false).build();
         pars.add(ticketPar.build());
 
         return new Docket(DocumentationType.SWAGGER_2)

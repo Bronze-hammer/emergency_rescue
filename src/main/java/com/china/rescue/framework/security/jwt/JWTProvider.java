@@ -26,9 +26,15 @@ import java.util.Map;
 @Slf4j
 public class JWTProvider {
 
-    private Key key;  // 私钥
-    private long tokenValidityInMilliseconds;  // 有效时间
-    private long tokenValidityInMillisecondsForRememberMe; // 记住我的有效时间
+    /** 私钥 */
+    private Key key;
+
+    /** 有效时间 */
+    private long tokenValidityInMilliseconds;
+
+    /** 记住我的有效时间 */
+
+    private long tokenValidityInMillisecondsForRememberMe;
 
     @Autowired
     private JWTProperties jwtProperties;
@@ -45,8 +51,8 @@ public class JWTProvider {
                     "We recommend using the `jhipster.security.authentication.jwt.base64-secret` key for optimum security.");
             keyBytes = secret.getBytes(StandardCharsets.UTF_8);
         }
-
-        this.key = Keys.hmacShaKeyFor(keyBytes); // 使用mac-sha算法的秘钥
+        // 使用mac-sha算法的秘钥
+        this.key = Keys.hmacShaKeyFor(keyBytes);
         this.tokenValidityInMilliseconds = 1000 * jwtProperties.getTokenValidityInMilliseconds();
         this.tokenValidityInMillisecondsForRememberMe = 1000 * jwtProperties.getTokenValidityInMillisecondsForRememberMe();
     }
@@ -64,8 +70,10 @@ public class JWTProvider {
         map.put("sub", authentication.getName());
         map.put("user", user);
         return Jwts.builder().setClaims(map)
-                .signWith(key, SignatureAlgorithm.HS512) //指定摘要算法
-                .setExpiration(validity)  // 设置有效时间
+                //指定摘要算法
+                .signWith(key, SignatureAlgorithm.HS512)
+                // 设置有效时间
+                .setExpiration(validity)
                 .compact();
     }
 

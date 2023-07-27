@@ -8,9 +8,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @Author: xbronze
- * @CreateTime: 2022-07-21  10:07
- * @Description: TODO
+ * 登录并返回token
+ *
+ * @author : xbronze
+ * @date : 2022-07-21  10:07
  */
 @RestController
 public class LoginController {
@@ -19,7 +20,7 @@ public class LoginController {
     private LoginService loginService;
 
     @GetMapping("/getToken")
-    public ServerResponse getToken(LoginBody loginBody){
+    public ServerResponse<String> getToken(LoginBody loginBody){
         String token = loginService.getToken(loginBody.getUsername(), loginBody.getPassword());
         return ServerResponse.createBySuccessByData(token);
     }

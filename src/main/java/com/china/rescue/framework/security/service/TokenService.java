@@ -20,9 +20,8 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @Author: xbronze
- * @CreateTime: 2022-07-21  10:54
- * @Description: TODO
+ * @author : xbronze
+ * @date : 2022-07-21  10:54
  */
 @Component
 @Slf4j
@@ -58,13 +57,15 @@ public class TokenService {
             // 从自定义tokenProvider中解析用户
             authToken = authToken.replace("Bearer ", "");
         }
-        if (StrUtil.hasEmpty(authToken))
+        if (StrUtil.hasEmpty(authToken)) {
             return null;
+        }
         Claims body = Jwts.parser().setSigningKey(jwtProperties.getSecret()).parseClaimsJws(authToken).getBody();
         String token = body.get("login_user_key") == null ? null : (String) body.get("login_user_key");
         Object redisValue = redisCache.getCacheObject("login_tokens:" + token);
-        if (redisValue == null)
+        if (redisValue == null) {
             return null;
+        }
 
         return JSONObject.parseObject(redisValue.toString(), LoginUser.class);
     }
