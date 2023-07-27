@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication
-@MapperScan(basePackages = "com.china.rescue.mapper")
+@MapperScan(basePackages = "com.china.rescue.business.*.mapper")
 public class RescueApplication {
 
 	public static void main(String[] args) {

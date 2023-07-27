@@ -1,8 +1,8 @@
-package com.china.rescue.controller;
+package com.china.rescue.business.system.controller;
 
 import com.china.rescue.common.ServerResponse;
 import com.china.rescue.framework.security.service.LoginService;
-import com.china.rescue.po.LoginBody;
+import com.china.rescue.business.system.po.LoginBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

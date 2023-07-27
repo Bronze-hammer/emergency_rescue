@@ -1,8 +1,8 @@
-package com.china.rescue.controller;
+package com.china.rescue.business.system.controller;
 
+import com.china.rescue.business.system.po.User;
 import com.china.rescue.common.ServerResponse;
-import com.china.rescue.po.User;
-import com.china.rescue.service.IUserService;
+import com.china.rescue.business.system.service.IUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
  * @author xbronze
  * @date 2023-7-27 14:52:28
  */
-@RequestMapping("/user")
+@RequestMapping("/system")
 @RestController
 @Api(value = "用户管理 controller" ,tags = {"用户管理接口统计"})
 public class UserController {

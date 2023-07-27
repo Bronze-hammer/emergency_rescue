@@ -1,4 +1,4 @@
-package com.china.rescue.po;
+package com.china.rescue.business.system.po;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -1,7 +1,7 @@
 package com.china.rescue.framework.security.jwt;
 
-import com.china.rescue.mapper.UserMapper;
-import com.china.rescue.po.User;
+import com.china.rescue.business.system.mapper.UserMapper;
+import com.china.rescue.business.system.po.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -68,7 +68,7 @@ public class JWTProvider {
         User user = userMapper.selectUserByLogin(authentication.getName());
         Map<String, Object> map = new HashMap<>();
         map.put("sub", authentication.getName());
-        map.put("user", user);
+        map.put("system", user);
         return Jwts.builder().setClaims(map)
                 //指定摘要算法
                 .signWith(key, SignatureAlgorithm.HS512)

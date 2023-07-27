@@ -34,7 +34,7 @@ public class Swagger2Config {
         List<Parameter> pars = new ArrayList<>();
 
         //Token 以及Authorization 为自定义的参数，session保存的名字是哪个就可以写成那个
-        ticketPar.name("Authorization").description("user ticket")
+        ticketPar.name("Authorization").description("system ticket")
                 .modelRef(new ModelRef("string")).parameterType("header")
                 //header中的ticket参数非必填，传空也可以
                 .required(false).build();

@@ -1,13 +1,11 @@
 package com.china.rescue.framework.security.service;
 
-import com.china.rescue.po.LoginUser;
+import com.china.rescue.business.system.po.LoginUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
-
-import javax.annotation.Resource;
 
 /**
  * @Author: xbronze

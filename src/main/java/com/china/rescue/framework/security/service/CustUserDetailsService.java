@@ -1,8 +1,8 @@
 package com.china.rescue.framework.security.service;
 
-import com.china.rescue.mapper.UserMapper;
-import com.china.rescue.po.LoginUser;
-import com.china.rescue.po.User;
+import com.china.rescue.business.system.mapper.UserMapper;
+import com.china.rescue.business.system.po.LoginUser;
+import com.china.rescue.business.system.po.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -27,10 +27,10 @@ public class CustUserDetailsService implements UserDetailsService {
         }
         // 2. 设置角色
 //        Collection<GrantedAuthority> grantedAuthorities = new ArrayList<>();
-//        GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(user.getRole());
+//        GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(system.getRole());
 //        grantedAuthorities.add(grantedAuthority);
 //
-//        return new org.springframework.security.core.userdetails.User(login, user.getPassword(), grantedAuthorities);
+//        return new org.springframework.security.core.userdetails.User(login, system.getPassword(), grantedAuthorities);
 
         Set<String> perms = new HashSet<>();
         perms.add(user.getRole());

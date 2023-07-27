@@ -5,7 +5,7 @@ import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson.JSONObject;
 import com.china.rescue.framework.redis.RedisCache;
 import com.china.rescue.framework.security.jwt.JWTProperties;
-import com.china.rescue.po.LoginUser;
+import com.china.rescue.business.system.po.LoginUser;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
